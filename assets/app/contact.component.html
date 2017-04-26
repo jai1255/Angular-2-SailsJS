@@ -1,0 +1,706 @@
+<div class="container">
+  <p style="text-align:center;"><img class="logo" src="./images/hyr-full-name.png" alt="" style="width:25%;" /></p>
+  <form class="well form-horizontal">
+
+    <fieldset>
+
+      <div>
+        <legend>Contact Information</legend>
+        <div class="form-group">
+          <label for="firstname" class="col-md-4 control-label"> First Name</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input type="text" [style.border-color]="ApplicantField.firstNameField[0]" class="form-control form-control-success" ngControl="firstnameverify"
+                (change)="fieldValidatio()" #firstnameverify="ngModel" id="firstname" [(ngModel)]="Applicant.firstName" name="firstName"
+                maxlength="35" required>
+            </div>
+            <div style="color:red">{{ApplicantField.firstNameField[1]}}</div>
+
+<!--<div *ngIf="firstnameverify.touched && firstnameverify.errors">
+  <div class="alert alert-danger" *ngIf="firstnameverify.errors.required">firstName Is required
+  </div>
+  {{ApplicantField.new}}
+</div>-->
+</div>
+</div>
+
+<div class="form-group">
+  <label for="lastname" class="col-md-4 control-label"> Last Name</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input type="text" [style.border-color]="ApplicantField.lastNameField[0]" class="form-control" id="lastname" (change)="lastnameValidatio()"
+        [(ngModel)]="Applicant.lastName" name="lastName" maxlength="35">
+    </div>
+    <div style="color:red">{{ApplicantField.lastNameField[1]}}</div>
+</div>
+</div>
+<div class="form-group">
+  <label for="email" class="col-md-4 control-label"> Preferred Email</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input type="email" class="form-control" ngControl="emailverify" (change)="fieldValidatio1()" #emailverify="ngModel" id="email"
+        [(ngModel)]="Applicant.email" [style.border-color]="ApplicantField.emailField[0]" name="email" required>
+    </div>
+    <div style="color:red">{{ApplicantField.emailField[1]}}</div>
+    <p style="color: mediumslateblue">Please Check your mail in spam folder</p>
+<!--<div *ngIf="emailverify.touched && emailverify.errors">
+  <div class="alert alert-danger" *ngIf="emailverify.errors.required">email Is required
+  </div>
+
+</div>-->
+</div>
+</div>
+<div class="form-group">
+  <label for="phonenumber" class="col-md-4 control-label"> Preferred Phone</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+      <input type="text" minlength="10" maxlength="10" class="form-control" ngControl="mobileverify" (change)="fieldValidatio2()"
+        #mobileverify="ngModel" [style.border-color]="ApplicantField.mobileField[0]" id="phonenumber" [(ngModel)]="Applicant.mobile"
+        name="mobile" required>
+    </div>
+    <div style="color:red">{{ApplicantField.mobileField[1]}}</div>
+<!--<div *ngIf="mobileverify.touched && mobileverify.errors">
+  <div class="alert alert-danger" *ngIf="mobileverify.errors.required">Number Is required
+  </div>
+</div>-->
+</div>
+</div>
+<div class="form-group">
+  <label for="contry" class="col-md-4 control-label">Preferred Country</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+      <select class="form-control" id="country" [(ngModel)]="Applicant.country" name="country" required>
+                <option value="" disabled selected>Please select your Country</option>
+                <option value="AF">Afghanistan</option>
+                <option value="AX">Åland Islands</option>
+                <option value="AL">Albania</option>
+                <option value="DZ">Algeria</option>
+                <option value="AS">American Samoa</option>
+                <option value="AD">Andorra</option>
+                <option value="AO">Angola</option>
+                <option value="AI">Anguilla</option>
+                <option value="AQ">Antarctica</option>
+                <option value="AG">Antigua and Barbuda</option>
+                <option value="AR">Argentina</option>
+                <option value="AM">Armenia</option>
+                <option value="AW">Aruba</option>
+                <option value="AU">Australia</option>
+                <option value="AT">Austria</option>
+                <option value="AZ">Azerbaijan</option>
+                <option value="BS">Bahamas</option>
+                <option value="BH">Bahrain</option>
+                <option value="BD">Bangladesh</option>
+                <option value="BB">Barbados</option>
+                <option value="BY">Belarus</option>
+                <option value="BE">Belgium</option>
+                <option value="BZ">Belize</option>
+                <option value="BJ">Benin</option>
+                <option value="BM">Bermuda</option>
+                <option value="BT">Bhutan</option>
+                <option value="BO">Bolivia, Plurinational State of</option>
+                <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                <option value="BA">Bosnia and Herzegovina</option>
+                <option value="BW">Botswana</option>
+                <option value="BV">Bouvet Island</option>
+                <option value="BR">Brazil</option>
+                <option value="IO">British Indian Ocean Territory</option>
+                <option value="BN">Brunei Darussalam</option>
+                <option value="BG">Bulgaria</option>
+                <option value="BF">Burkina Faso</option>
+                <option value="BI">Burundi</option>
+                <option value="KH">Cambodia</option>
+                <option value="CM">Cameroon</option>
+                <option value="CA">Canada</option>
+                <option value="CV">Cape Verde</option>
+                <option value="KY">Cayman Islands</option>
+                <option value="CF">Central African Republic</option>
+                <option value="TD">Chad</option>
+                <option value="CL">Chile</option>
+                <option value="CN">China</option>
+                <option value="CX">Christmas Island</option>
+                <option value="CC">Cocos (Keeling) Islands</option>
+                <option value="CO">Colombia</option>
+                <option value="KM">Comoros</option>
+                <option value="CG">Congo</option>
+                <option value="CD">Congo, the Democratic Republic of the</option>
+                <option value="CK">Cook Islands</option>
+                <option value="CR">Costa Rica</option>
+                <option value="CI">Côte d'Ivoire</option>
+                <option value="HR">Croatia</option>
+                <option value="CU">Cuba</option>
+                <option value="CW">Curaçao</option>
+                <option value="CY">Cyprus</option>
+                <option value="CZ">Czech Republic</option>
+                <option value="DK">Denmark</option>
+                <option value="DJ">Djibouti</option>
+                <option value="DM">Dominica</option>
+                <option value="DO">Dominican Republic</option>
+                <option value="EC">Ecuador</option>
+                <option value="EG">Egypt</option>
+                <option value="SV">El Salvador</option>
+                <option value="GQ">Equatorial Guinea</option>
+                <option value="ER">Eritrea</option>
+                <option value="EE">Estonia</option>
+                <option value="ET">Ethiopia</option>
+                <option value="FK">Falkland Islands (Malvinas)</option>
+                <option value="FO">Faroe Islands</option>
+                <option value="FJ">Fiji</option>
+                <option value="FI">Finland</option>
+                <option value="FR">France</option>
+                <option value="GF">French Guiana</option>
+                <option value="PF">French Polynesia</option>
+                <option value="TF">French Southern Territories</option>
+                <option value="GA">Gabon</option>
+                <option value="GM">Gambia</option>
+                <option value="GE">Georgia</option>
+                <option value="DE">Germany</option>
+                <option value="GH">Ghana</option>
+                <option value="GI">Gibraltar</option>
+                <option value="GR">Greece</option>
+                <option value="GL">Greenland</option>
+                <option value="GD">Grenada</option>
+                <option value="GP">Guadeloupe</option>
+                <option value="GU">Guam</option>
+                <option value="GT">Guatemala</option>
+                <option value="GG">Guernsey</option>
+                <option value="GN">Guinea</option>
+                <option value="GW">Guinea-Bissau</option>
+                <option value="GY">Guyana</option>
+                <option value="HT">Haiti</option>
+                <option value="HM">Heard Island and McDonald Islands</option>
+                <option value="VA">Holy See (Vatican City State)</option>
+                <option value="HN">Honduras</option>
+                <option value="HK">Hong Kong</option>
+                <option value="HU">Hungary</option>
+                <option value="IS">Iceland</option>
+                <option value="IN">India</option>
+                <option value="ID">Indonesia</option>
+                <option value="IR">Iran, Islamic Republic of</option>
+                <option value="IQ">Iraq</option>
+                <option value="IE">Ireland</option>
+                <option value="IM">Isle of Man</option>
+                <option value="IL">Israel</option>
+                <option value="IT">Italy</option>
+                <option value="JM">Jamaica</option>
+                <option value="JP">Japan</option>
+                <option value="JE">Jersey</option>
+                <option value="JO">Jordan</option>
+                <option value="KZ">Kazakhstan</option>
+                <option value="KE">Kenya</option>
+                <option value="KI">Kiribati</option>
+                <option value="KP">Korea, Democratic People's Republic of</option>
+                <option value="KR">Korea, Republic of</option>
+                <option value="KW">Kuwait</option>
+                <option value="KG">Kyrgyzstan</option>
+                <option value="LA">Lao People's Democratic Republic</option>
+                <option value="LV">Latvia</option>
+                <option value="LB">Lebanon</option>
+                <option value="LS">Lesotho</option>
+                <option value="LR">Liberia</option>
+                <option value="LY">Libya</option>
+                <option value="LI">Liechtenstein</option>
+                <option value="LT">Lithuania</option>
+                <option value="LU">Luxembourg</option>
+                <option value="MO">Macao</option>
+                <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                <option value="MG">Madagascar</option>
+                <option value="MW">Malawi</option>
+                <option value="MY">Malaysia</option>
+                <option value="MV">Maldives</option>
+                <option value="ML">Mali</option>
+                <option value="MT">Malta</option>
+                <option value="MH">Marshall Islands</option>
+                <option value="MQ">Martinique</option>
+                <option value="MR">Mauritania</option>
+                <option value="MU">Mauritius</option>
+                <option value="YT">Mayotte</option>
+                <option value="MX">Mexico</option>
+                <option value="FM">Micronesia, Federated States of</option>
+                <option value="MD">Moldova, Republic of</option>
+                <option value="MC">Monaco</option>
+                <option value="MN">Mongolia</option>
+                <option value="ME">Montenegro</option>
+                <option value="MS">Montserrat</option>
+                <option value="MA">Morocco</option>
+                <option value="MZ">Mozambique</option>
+                <option value="MM">Myanmar</option>
+                <option value="NA">Namibia</option>
+                <option value="NR">Nauru</option>
+                <option value="NP">Nepal</option>
+                <option value="NL">Netherlands</option>
+                <option value="NC">New Caledonia</option>
+                <option value="NZ">New Zealand</option>
+                <option value="NI">Nicaragua</option>
+                <option value="NE">Niger</option>
+                <option value="NG">Nigeria</option>
+                <option value="NU">Niue</option>
+                <option value="NF">Norfolk Island</option>
+                <option value="MP">Northern Mariana Islands</option>
+                <option value="NO">Norway</option>
+                <option value="OM">Oman</option>
+                <option value="PK">Pakistan</option>
+                <option value="PW">Palau</option>
+                <option value="PS">Palestinian Territory, Occupied</option>
+                <option value="PA">Panama</option>
+                <option value="PG">Papua New Guinea</option>
+                <option value="PY">Paraguay</option>
+                <option value="PE">Peru</option>
+                <option value="PH">Philippines</option>
+                <option value="PN">Pitcairn</option>
+                <option value="PL">Poland</option>
+                <option value="PT">Portugal</option>
+                <option value="PR">Puerto Rico</option>
+                <option value="QA">Qatar</option>
+                <option value="RE">Réunion</option>
+                <option value="RO">Romania</option>
+                <option value="RU">Russian Federation</option>
+                <option value="RW">Rwanda</option>
+                <option value="BL">Saint Barthélemy</option>
+                <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                <option value="KN">Saint Kitts and Nevis</option>
+                <option value="LC">Saint Lucia</option>
+                <option value="MF">Saint Martin (French part)</option>
+                <option value="PM">Saint Pierre and Miquelon</option>
+                <option value="VC">Saint Vincent and the Grenadines</option>
+                <option value="WS">Samoa</option>
+                <option value="SM">San Marino</option>
+                <option value="ST">Sao Tome and Principe</option>
+                <option value="SA">Saudi Arabia</option>
+                <option value="SN">Senegal</option>
+                <option value="RS">Serbia</option>
+                <option value="SC">Seychelles</option>
+                <option value="SL">Sierra Leone</option>
+                <option value="SG">Singapore</option>
+                <option value="SX">Sint Maarten (Dutch part)</option>
+                <option value="SK">Slovakia</option>
+                <option value="SI">Slovenia</option>
+                <option value="SB">Solomon Islands</option>
+                <option value="SO">Somalia</option>
+                <option value="ZA">South Africa</option>
+                <option value="GS">South Georgia and the South Sandwich Islands</option>
+                <option value="SS">South Sudan</option>
+                <option value="ES">Spain</option>
+                <option value="LK">Sri Lanka</option>
+                <option value="SD">Sudan</option>
+                <option value="SR">Suriname</option>
+                <option value="SJ">Svalbard and Jan Mayen</option>
+                <option value="SZ">Swaziland</option>
+                <option value="SE">Sweden</option>
+                <option value="CH">Switzerland</option>
+                <option value="SY">Syrian Arab Republic</option>
+                <option value="TW">Taiwan, Province of China</option>
+                <option value="TJ">Tajikistan</option>
+                <option value="TZ">Tanzania, United Republic of</option>
+                <option value="TH">Thailand</option>
+                <option value="TL">Timor-Leste</option>
+                <option value="TG">Togo</option>
+                <option value="TK">Tokelau</option>
+                <option value="TO">Tonga</option>
+                <option value="TT">Trinidad and Tobago</option>
+                <option value="TN">Tunisia</option>
+                <option value="TR">Turkey</option>
+                <option value="TM">Turkmenistan</option>
+                <option value="TC">Turks and Caicos Islands</option>
+                <option value="TV">Tuvalu</option>
+                <option value="UG">Uganda</option>
+                <option value="UA">Ukraine</option>
+                <option value="AE">United Arab Emirates</option>
+                <option value="GB">United Kingdom</option>
+                <option value="US">United States</option>
+                <option value="UM">United States Minor Outlying Islands</option>
+                <option value="UY">Uruguay</option>
+                <option value="UZ">Uzbekistan</option>
+                <option value="VU">Vanuatu</option>
+                <option value="VE">Venezuela, Bolivarian Republic of</option>
+                <option value="VN">Viet Nam</option>
+                <option value="VG">Virgin Islands, British</option>
+                <option value="VI">Virgin Islands, U.S.</option>
+                <option value="WF">Wallis and Futuna</option>
+                <option value="EH">Western Sahara</option>
+                <option value="YE">Yemen</option>
+                <option value="ZM">Zambia</option>
+                <option value="ZW">Zimbabwe</option>
+              </select>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label for="streetaddress1" class="col-md-4 control-label"> Street address 1</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+      <input type="text" class="form-control" id="streetaddress1" [(ngModel)]="Applicant.streetAddress1" name="streetAddress1"
+        required>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label for="streetaddress2" class="col-md-4 control-label"> Street address 2</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+      <input type="text" class="form-control" id="streetaddress2" [(ngModel)]="Applicant.streetAddress2" name="streetAddress2"
+        >
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label for="city" class="col-md-4 control-label"> City</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+      <input type="text"  class="form-control" id="city" (change)="cityValidation()"
+        [(ngModel)]="Applicant.city" name="city" maxlength="35" required>
+    </div>
+    <div style="color:red">{{ApplicantField.cityField[1]}}</div>
+</div>
+</div>
+<div class="form-group">
+  <label for="state" class="col-md-4 control-label"> State</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+      <input type="text" [style.border-color]="ApplicantField.stateField[0]" class="form-control" id="state" (change)="stateValidation()"
+        [(ngModel)]="Applicant.state" maxlength="35" name="state" required>
+    </div>
+    <div style="color:red">{{ApplicantField.stateField[1]}}</div>
+</div>
+</div>
+<div class="form-group">
+  <label for="zipcode" class="col-md-4  control-label">Zip code</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+      <input type="text" class="form-control" [style.border-color]="ApplicantField.zipcodeField[0]" maxlength="6" (change)="fieldValidatio3()"
+        id="zipcode" [(ngModel)]="Applicant.zipcode" name="zipcode" required>
+    </div>
+    <div style="color:red">{{ApplicantField.zipcodeField[1]}}</div>
+</div>
+</div>
+
+
+</div>
+<hr>
+<!--education-->
+
+<div>
+
+  <legend>Education Information</legend>
+  <div class="form-group">
+    <label class="col-md-4 control-label">Education Level</label>
+    <div class="col-md-4 selectContainer">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+        <select name="education" class="form-control" ngControl="educationverify" #educationverify="ngModel" [(ngModel)]="Applicant.education"
+          required>
+                <option value=" " disabled selected>Please select your Highest Level of education</option>
+                <option>Masters</option>
+                <option>Bachleors</option>
+                <option>HighSchool</option>
+              </select>
+      </div>
+      <!--<div class="alert alert-danger" *ngIf="educationverify.touched && !educationverify.valid  ">Education Level Is required
+      </div>-->
+    </div>
+  </div>
+
+  <!--  ----------       College NAME ------------!-->
+  <div class="form-group">
+    <label class="col-md-4 control-label">College Name</label>
+    <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+        <input name="collegeName" placeholder="School" [style.border-color]="ApplicantField.collegeNameField[0]" class="form-control"
+          ngControl="collegeverify" #collegeverify="ngModel" (change)="fieldValidation()" [(ngModel)]="Applicant.collegeName"
+          maxlength="45" required>
+
+      </div>
+      <div style="color:red">{{ApplicantField.collegeNameField[1]}}</div>
+<!--<div *ngIf="collegeverify.touched && collegeverify.errors">
+  <div class="alert alert-danger" *ngIf="collegeverify.errors.required">College Name Is required
+  </div>
+</div>-->
+
+</div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Graduation Status</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+
+      <input name="status" type="radio" ngControl="gradverify" #gradverify="ngModel" [(ngModel)]="Applicant.status" value="Comple"
+        required>Completed
+
+    </div>
+    <div class="input-group">
+      <input name="status" type="radio" [(ngModel)]="Applicant.status" value="Notcomple" required>Not Completed
+    </div>
+    <div class="input-group">
+      <input name="status" type="radio" [(ngModel)]="Applicant.status" value="Stillattend" required>Still Attending
+    </div>
+    <!--<div class="alert alert-danger" *ngIf="gradverify.touched && !gradverify.valid">Graduation Status Is required
+    </div>-->
+  </div>
+
+
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Major Field</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+      <input name="courseName" placeholder="Course Name" class="form-control" [style.border-color]="ApplicantField.courseNameField[0]"
+        ngControl="fieldverify" #fieldverify="ngModel" (change)="majorValid()" value="Comple" [ngModel]="Applicant.courseName"
+        (ngModelChange)="coursenamechange($event)" maxlength="40" required>
+    </div>
+    <div style="color:red">{{ApplicantField.courseNameField[1]}}</div>
+<!--<div class="alert alert-danger" *ngIf="fieldverify.touched && !fieldverify.valid">Field of study Is required
+</div>-->
+</div>
+<!--
+                  <div>
+                    <button type="submit" (click)="savingemployee()" class="btn btn-primary">submit...</button>
+                  </div><br>
+                  <div>
+                    <button type="submit" (click)="continue()" class="btn btn-primary">Continue...</button>
+                  </div>
+                </div>
+            -->
+
+</div>
+</div>
+<hr>
+
+<div>
+  <legend>Employment Summary</legend>
+  <div style="padding-left: 10cm">
+<p>1. Does your employment history include at least one job ?</p>
+<input type="radio" name="workExperience" (change)="validateWorkExpFieldYes()">Yes
+<input type="radio" name="workExperience" (change)="validateWorkExpFieldNo()">No
+</div>
+<br>
+<!-- Text input-->
+<div [hidden]="workExpFieldYes">
+  <div class="form-group red-box">
+    <label class="col-md-4 control-label">Employer</label>
+    <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input name="employer" placeholder="Employer" class="form-control" type="text" ngControl="employerVerify" #employerVerify="ngModel"
+          [(ngModel)]="Applicant.employer" [style.border-color]="ApplicantField.employerField[0]" (change)="validateEmployerField()"
+          maxlength="50" required>
+
+      </div>
+      <div style="color:red">{{ApplicantField.employerField[1]}}</div>
+<!--<div class="alert alert-danger" *ngIf="employerVerify.touched && !employerVerify.valid  ">Employer Name is required
+</div>-->
+</div>
+</div>
+
+
+<div [hidden]="workExpFieldYes" class="form-group red-box">
+  <label class="col-md-4 control-label">Job Title</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input name="jobTitle" placeholder="Job Title" class="form-control" [style.border-color]="ApplicantField.jobTitleField[0]"
+        type="text" ngControl="jobTitleVerify" #jobTitleVerify="ngModel" [(ngModel)]="Applicant.jobTitle" (chnage)="validateJobTitleField()"
+        maxlength="40" required>
+    </div>
+    <div style="color:red">{{ApplicantField.jobTitleField[1]}}</div>
+<!--<div class="alert alert-danger" *ngIf="jobTitleVerify.touched && !jobTitleVerify.valid  ">Job Title is required
+</div>-->
+</div>
+</div>
+
+<div [hidden]="workExpFieldYes" class="form-group red-box">
+  <label class="col-md-4 control-label">Current Employer</label>
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+
+      <input type="radio" name="currentEmployer" (change)="validateCurrentEmployerFieldYes()">Yes
+      <input type="radio" name="currentEmployer" (change)="validateCurrentEmployerFieldNo()">No
+
+
+    </div>
+
+  </div>
+</div>
+
+
+<div [hidden]="currentEmployerFieldYes" style="padding-left: 12cm">Start Date
+<div class="form-group">
+  <div class="input-group">
+    <input class="form-control" style="width: 5cm" placeholder="yyyy-mm-dd" name="startDate" ngbDatepicker #dp1="ngbDatepicker" [(ngModel)]="Applicant.startDate">
+    <div class="input-group-addon" style="width: 1cm" (click)="dp1.toggle()">
+     <span class="glyphicon glyphicon-calendar " style="cursor: pointer"></span>
+    </div>
+  </div>
+</div>
+</div>
+<div [hidden]="currentEmployerFieldNo" style="padding-left: 12cm">End Date
+<div class="form-group">
+  <div class="input-group">
+    <input class="form-control" style="width: 5cm" placeholder="yyyy-mm-dd" name="endDate" [(ngModel)]="model" ngbDatepicker #dp2="ngbDatepicker" [(ngModel)]="Applicant.endDate">
+     <div class="input-group-addon" style="width: 1cm" (click)="dp2.toggle()">
+      <span class="glyphicon glyphicon-calendar " style="cursor: pointer"></span>
+     </div>
+    </div>
+  </div>
+ </div>
+</div>
+<!--
+        <div>
+          <button type="submit" (click)="validateField()" class="btn btn-primary">Submit</button>
+        </div>-->
+
+
+</div>
+<hr>
+
+
+<div>
+
+  <legend>Immigration Information</legend>
+  <div class="form-group">
+    <label class="col-md-4 control-label">Immigration Status</label>
+    <div class="col-md-4 selectContainer">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+        <select name="immigration" class="form-control" [(ngModel)]="Applicant.immigration" (change)="immgdate_op()" required>
+           <option value=" " selected disabled>Please select your Immigration Status</option>
+           <option>F1-CPT</option>
+           <option>F1-OPT</option>
+           <option>H1-B</option>
+           <option>GC-EAD</option>
+           <option>GC</option>
+           <option>US citizen</option>
+         </select>
+      </div>
+      <!--<div class="alert alert-danger" *ngIf="educationverify.touched && !educationverify.valid  ">Education Level Is
+         required
+       </div>-->
+    </div>
+  </div>
+  <div class="form-group" *ngIf=prof_details>
+         <label for="Reporting" class="col-md-4 control-label">Reporting Professor Name</label>
+         <div class="col-md-4 inputGroupContainer">
+           <div class="input-group">
+             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+             <input type="text" [style.border-color]="ApplicantField.ProfessorField[0]" class="form-control form-control-success" ngControl="profverify"
+               (keyup)="profvalidation()" #profverify="ngModel" id="professor" [(ngModel)]="Applicant.professor" name="professor"
+               maxlength="35" required>
+           </div>
+           <div style="color:red">{{ApplicantField.ProfessorField[1]}}</div>
+
+<!--<div *ngIf="profverify.touched && profverify.errors">
+ <div class="alert alert-danger" *ngIf="profverify.errors.required">Professor Name Is required
+ </div>
+ {{ApplicantField.new}}
+</div>-->
+</div>
+</div>
+ <div class="form-group" *ngIf=prof_details>
+         <label for="profemail" class="col-md-4 control-label">Professor email</label>
+         <div class="col-md-4 inputGroupContainer">
+           <div class="input-group">
+             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+             <input type="email" [style.border-color]="ApplicantField.ProfemailField[0]" class="form-control form-control-success" ngControl="profverify"
+               (change)="profemailvalidation()" #profverify="ngModel" id="profemail" [(ngModel)]="Applicant.profemail" name="profemail"
+               maxlength="35" required>
+           </div>
+           <div style="color:red">{{ApplicantField.ProfemailField[1]}}</div>
+</div>
+</div>
+  <div class="form-group" *ngIf="enddate_op">
+    <label class="col-md-4 control-label">Start Date:</label>
+    <div class="col-md-4 selectContainer">
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="imgstart" [ngModel]="Applicant.imgstart" ngbDatepicker #d1="ngbDatepicker"
+          #imstarts (ngModelChange)="date_start($event)" >
+        <div class="input-group-addon" (click)="d1.toggle()">
+          <span class="glyphicon glyphicon-calendar" style="cursor: pointer" ></span>
+</div>
+</div>
+<div *ngIf="validdatestarts">
+  <div class="alert alert-danger" *ngIf="validdatestarts">Date can't be accepted'
+  </div>
+</div>
+</div>
+</div>
+<div *ngIf="!validdatestarts">
+  <div class="form-group" *ngIf=enddate_op>
+    <label class="col-md-4 control-label">End Date</label>
+    <div class="col-md-4 selectContainer">
+      <div class="input-group ">
+        <input class="form-control" id="validdateends" placeholder="yyyy-mm-dd" name="imgend" [ngModel]="Applicant.imgend" ngControl="employerVerify"
+          #employerVerify="ngModel" ngbDatepicker #d2="ngbDatepicker" #imends (ngModelChange)="date_end($event)">
+        <div class="input-group-addon" (click)="d2.toggle()">
+          <!--<img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>-->
+          <span class="glyphicon glyphicon-calendar " style="cursor: pointer"></span>
+
+</div>
+</div>
+<div *ngIf="validdateends">
+  <div class="alert alert-danger" *ngIf="validdateends">Date can't be accepted'
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+<!--<div>
+         <button type="submit" (click)="savingimmigration()" class="btn btn-primary">submit...</button>
+     </div><br>
+     <div>
+         <button type="submit" (click)="continue()" class="btn btn-primary">Continue...</button>
+     </div>-->
+
+
+</div>
+
+<div>
+
+  <legend>Technical Summary</legend>
+  <div class="form-group">
+    <label for="skill" class="col-md-4 control-label">Knowledge on programming languages</label>
+    <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+        <input type="text" name="skill" class="form-control" placeholder="Enter known languages" [(ngModel)]="Applicant.skill"  (change)="validateSkillField()">
+      </div>
+    </div>
+  </div>
+   <div class="form-group">
+          <label for="referred" class="col-md-4 control-label">Referred by<small>(optional)</small></label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input type="text"  class="form-control form-control-success" ngControl="firstnameverify"
+                  id="referred" [(ngModel)]="Applicant.referred" name="referred"
+                maxlength="35" (change)="referenceValidation()">
+            </div>
+            </div>
+        </div>
+     </div>
+
+<div>
+  <button style="float: right" type="submit" (click)="continue()" class="btn btn-primary">Submit</button>
+</div>
+</fieldset>
+
+</form>
+
+
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>
